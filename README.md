@@ -2,12 +2,11 @@
 
 **Software Engineer** — Open edX platform engineering
 
-I build and maintain large-scale open-source learning platforms. I maintain
-[`openedx-scorm-xblock`](https://github.com/overhangio/openedx-scorm-xblock) for
-[Overhang.IO](https://github.com/overhangio) — the organization behind Tutor, the official
-[Open edX](https://openedx.org) distribution — and contribute across the wider Tutor plugin
-ecosystem. Day to day I work on [Wikimedia's WikiLearn](https://github.com/wikimedia), where I
-focus on platform internals, internationalization and RTL, certificates, and SCORM.
+I work on open-source learning platforms. I maintain two plugins in the
+[Open edX](https://openedx.org) ecosystem and contribute to
+[Tutor](https://github.com/overhangio/tutor), its official distribution. Day to day I work on
+[Wikimedia's WikiLearn](https://github.com/wikimedia) — platform internals, internationalization
+and RTL, certificates, and SCORM.
 
 ---
 
@@ -72,45 +71,26 @@ Outside of work I build games in Unity.
 
 ## Open Source
 
-Maintainer of an official Open edX package, with **54 merged pull requests across 22 upstream
-repositories** — including 15 in [Overhang.IO](https://github.com/overhangio), the organization
-behind Tutor, the official Open edX distribution.
+**54 merged pull requests across 22 upstream repositories.**
 
-### Maintainer
+### Plugins I maintain
 
-**[overhangio/openedx-scorm-xblock](https://github.com/overhangio/openedx-scorm-xblock)** — the
-SCORM XBlock used across the Open edX ecosystem. I took over maintainership of the package and
-have since shipped fixes for the problems that hurt most in production: SCORM block files now
-survive OLX export/import and course reruns instead of being silently dropped, large package
-uploads report their real outcome in Studio rather than failing quietly, and completion tracking
-reports accurate state back to the LMS.
+**[openedx-scorm-xblock](https://github.com/overhangio/openedx-scorm-xblock)** — the SCORM player
+used across Open edX. Recent fixes: SCORM files survive course export and rerun, large uploads
+report real errors instead of failing silently, and completion tracking reports accurate state.
 
-### Ecosystem-wide maintenance
+**RustFS storage plugin** — brings [RustFS](https://github.com/rustfs/rustfs) object storage to
+Tutor as an S3-compatible alternative to MinIO.
 
-**Python 3.9 → 3.14 migration across the Tutor plugin ecosystem.** Planned and executed the
-runtime upgrade across **15 Overhang.IO repositories** — `tutor` core plus the `mfe`, `indigo`,
-`discovery`, `credentials`, `cairn`, `forum`, `notes`, `minio`, `xqueue`, `jupyter`, `android`,
-`deck`, and `livedeps` plugins — coordinating the rollout and the breaking-change notices so
-downstream operators upgraded without surprises.
+### Contributions
 
-**[overhangio/tutor](https://github.com/overhangio/tutor)** — migrated Kubernetes manifests from
-the deprecated `commonLabels` to `labels`, keeping backward compatibility so existing deployments
-continued to work through the transition.
+**[Tutor](https://github.com/overhangio/tutor) and its plugins** — ran the Python 3.9 → 3.14
+upgrade across 15 Overhang.IO repositories, and moved Kubernetes manifests off the deprecated
+`commonLabels` without breaking existing deployments.
 
-### Platform engineering — [Wikimedia WikiLearn](https://github.com/wikimedia)
-
-**Identity & integrations.** Built WikiLearn ↔ Wikimedia username synchronization, keeping a
-learner's identity consistent by reconciling it on every OAuth login. Fixed a Meta fetch cron that
-was rate-limiting itself into repeated failure, and set up Credentials issuance with catalog sync
-and a scheduled backfill.
-
-**Internationalization & RTL.** Led right-to-left support across the platform theme and fixed the
-translation pipeline feeding `translatewiki.net` — preserving fuzzy flags on English source
-templates and resolving empty message groups that were blocking translators.
-
-**Core platform.** Contributed to [`edx-platform`](https://github.com/wikimedia/edx-platform),
-hardening HTML sanitization against malformed input, backporting an upstream fix that restored
-broken discussion threads, and correcting instructor-issued certificate reports.
+**[Wikimedia WikiLearn](https://github.com/wikimedia)** — OAuth username sync, RTL support across
+the theme, translation pipeline fixes for `translatewiki.net`, and certificate reporting in
+[`edx-platform`](https://github.com/wikimedia/edx-platform).
 
 ---
 
