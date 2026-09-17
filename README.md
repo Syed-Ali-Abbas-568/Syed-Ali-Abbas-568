@@ -1,12 +1,13 @@
 # Syed Ali Abbas
 
-**Software Engineer at [Arbisoft](https://arbisoft.com)** — Open edX platform engineering
+**Software Engineer** — Open edX platform engineering
 
-I build and maintain large-scale open-source learning platforms. Most of my work lives in the
-[Open edX](https://openedx.org) ecosystem: platform internals, Tutor deployment plugins, XBlocks,
-and micro-frontends. I contribute upstream to Open edX core projects and to
-[Wikimedia's WikiLearn](https://github.com/wikimedia), where I focus on internationalization,
-RTL support, certificates, and SCORM.
+I build and maintain large-scale open-source learning platforms. I maintain
+[`openedx-scorm-xblock`](https://github.com/overhangio/openedx-scorm-xblock) for
+[Overhang.IO](https://github.com/overhangio) — the organization behind Tutor, the official
+[Open edX](https://openedx.org) distribution — and contribute across the wider Tutor plugin
+ecosystem. Day to day I work on [Wikimedia's WikiLearn](https://github.com/wikimedia), where I
+focus on platform internals, internationalization and RTL, certificates, and SCORM.
 
 ---
 
@@ -69,30 +70,47 @@ Outside of work I build games in Unity.
 
 ---
 
-## Selected Open Source Contributions
+## Open Source
 
-**[overhangio/openedx-scorm-xblock](https://github.com/overhangio/openedx-scorm-xblock)**
-Fixed SCORM completion tracking, and corrected Studio's error reporting so large package
-uploads surface their real outcome instead of failing silently.
+Maintainer of an official Open edX package, with **54 merged pull requests across 22 upstream
+repositories** — including 15 in [Overhang.IO](https://github.com/overhangio), the organization
+behind Tutor, the official Open edX distribution.
 
-**[wikimedia/edx-platform](https://github.com/wikimedia/edx-platform)**
-Hardened `clean_dangerous_html` against `None`/empty input, and backported an upstream fix
-restoring discussion threads.
+### Maintainer
 
-**[wikimedia/openedx-wikilearn-features](https://github.com/wikimedia/openedx-wikilearn-features)**
-Built WikiLearn ↔ Wikimedia username synchronization on OAuth login, fixed a Meta fetch cron
-that was rate-limiting itself into failure, and corrected instructor-issued certificate reports.
+**[overhangio/openedx-scorm-xblock](https://github.com/overhangio/openedx-scorm-xblock)** — the
+SCORM XBlock used across the Open edX ecosystem. I took over maintainership of the package and
+have since shipped fixes for the problems that hurt most in production: SCORM block files now
+survive OLX export/import and course reruns instead of being silently dropped, large package
+uploads report their real outcome in Studio rather than failing quietly, and completion tracking
+reports accurate state back to the LMS.
 
-**[wikimedia/tutor-indigo-wikilearn](https://github.com/wikimedia/tutor-indigo-wikilearn)**
-Added RTL support across the theme and fixed certificate print preview to render as a single
-page across all page sizes.
+### Ecosystem-wide maintenance
 
-**[wikimedia/openedx-translations](https://github.com/wikimedia/openedx-translations)**
-Fixed empty message groups on `translatewiki.net` and preserved fuzzy flags on English
-source templates.
+**Python 3.9 → 3.14 migration across the Tutor plugin ecosystem.** Planned and executed the
+runtime upgrade across **15 Overhang.IO repositories** — `tutor` core plus the `mfe`, `indigo`,
+`discovery`, `credentials`, `cairn`, `forum`, `notes`, `minio`, `xqueue`, `jupyter`, `android`,
+`deck`, and `livedeps` plugins — coordinating the rollout and the breaking-change notices so
+downstream operators upgraded without surprises.
 
-**[edly-io/frontend-app-authoring](https://github.com/edly-io/frontend-app-authoring)**
-Suppressed misleading banner errors while a course is being prepared.
+**[overhangio/tutor](https://github.com/overhangio/tutor)** — migrated Kubernetes manifests from
+the deprecated `commonLabels` to `labels`, keeping backward compatibility so existing deployments
+continued to work through the transition.
+
+### Platform engineering — [Wikimedia WikiLearn](https://github.com/wikimedia)
+
+**Identity & integrations.** Built WikiLearn ↔ Wikimedia username synchronization, keeping a
+learner's identity consistent by reconciling it on every OAuth login. Fixed a Meta fetch cron that
+was rate-limiting itself into repeated failure, and set up Credentials issuance with catalog sync
+and a scheduled backfill.
+
+**Internationalization & RTL.** Led right-to-left support across the platform theme and fixed the
+translation pipeline feeding `translatewiki.net` — preserving fuzzy flags on English source
+templates and resolving empty message groups that were blocking translators.
+
+**Core platform.** Contributed to [`edx-platform`](https://github.com/wikimedia/edx-platform),
+hardening HTML sanitization against malformed input, backporting an upstream fix that restored
+broken discussion threads, and correcting instructor-issued certificate reports.
 
 ---
 
